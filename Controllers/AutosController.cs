@@ -20,9 +20,32 @@ namespace MVCAutod.Controllers
         }
 
         // GET: Autos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string autoMudel, string searchString)
         {
-            return View(await _context.Auto.ToListAsync());
+            IQueryable<string> genreQuery = from m in _context.Auto
+                                            orderby m.Model
+                                            select m.Model;
+
+            var autos = from m in _context.Auto
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                autos = autos.Where(s => s.Brand.Contains(searchString));
+            }
+            
+            if (!string.IsNullOrEmpty(autoMudel))
+            {
+                autos = autos.Where(x => x.Model == autoMudel);
+            }
+
+            var autoGenreVM = new AutoModelViewModel
+            {
+                Models = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                Autos = await autos.ToListAsync()
+            };
+
+            return View(autoGenreVM);
         }
 
         // GET: Autos/Details/5
@@ -86,7 +109,7 @@ namespace MVCAutod.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Brand,Color")] Auto auto)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Model,ReleaseDate,Brand,Price")] Auto auto)
         {
             if (id != auto.Id)
             {
@@ -148,6 +171,12 @@ namespace MVCAutod.Controllers
         private bool AutoExists(int id)
         {
             return _context.Auto.Any(e => e.Id == id);
+        }
+        
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
+        {
+            return "From [HttpPost]Index: filter on " + searchString;
         }
     }
 }
