@@ -5,7 +5,7 @@ using MVCAutod.Models;
 using System;
 using System.Linq;
 
-namespace MvcMovie.Models
+namespace MvcAutod.Models
 {
     public static class SeedData
     {
@@ -24,33 +24,33 @@ namespace MvcMovie.Models
                 context.Auto.AddRange(
                     new Auto
                     {
-                        Model = "When Harry Met Sally",
+                        Model = "R8",
                         ReleaseDate = DateTime.Parse("1989-2-12"),
-                        Brand = "Romantic Comedy",
+                        Brand = "Audi",
                         Price = 7.99M
                     },
 
                     new Auto
                     {
-                        Model = "Ghostbusters ",
+                        Model = "Golf mk2 ",
                         ReleaseDate = DateTime.Parse("1984-3-13"),
-                        Brand = "Comedy",
+                        Brand = "Volkswagen",
                         Price = 8.99M
                     },
 
                     new Auto
                     {
-                        Model = "Ghostbusters 2",
+                        Model = "sf90",
                         ReleaseDate = DateTime.Parse("1986-2-23"),
-                        Brand = "Comedy",
+                        Brand = "Ferrari",
                         Price = 9.99M
                     },
 
                     new Auto
                     {
-                        Model = "Rio Bravo",
+                        Model = "i10",
                         ReleaseDate = DateTime.Parse("1959-4-15"),
-                        Brand = "Western",
+                        Brand = "Hyundai",
                         Price = 3.99M
                     }
                 );
