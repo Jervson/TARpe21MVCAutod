@@ -10,15 +10,26 @@ namespace MVCAutod.Models
     public class Auto
     {
         public int Id { get; set; }
-        public string Model { get; set; }
+        [StringLength(60, MinimumLength = 3)]
+        [Required]
+        public string Brand { get; set; }
 
         [Display(Name = "Release Date")]
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
-        public string Brand { get; set; }
 
+        [Range(1, 100000)]
+        [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18, 2)")]
-        public int Price { get; set; }
+        public decimal Price { get; set; }
+
+        [RegularExpression(@"[a-zA-Z0-9\s]+$")]
+        [Required]
+        [StringLength(30)]
+        public string Model { get; set; }
+
+        [Range(1, 10)]
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal Rating { get; set; }
     }
 }
