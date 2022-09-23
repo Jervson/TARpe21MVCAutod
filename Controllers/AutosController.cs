@@ -77,7 +77,7 @@ namespace MVCAutod.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Brand,Color")] Auto auto)
+        public async Task<IActionResult> Create([Bind("Id,Model,ReleaseDate,Brand,Price,Rating")] Auto auto)
         {
             if (ModelState.IsValid)
             {
@@ -109,7 +109,7 @@ namespace MVCAutod.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Model,ReleaseDate,Brand,Price")] Auto auto)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Model,ReleaseDate,Brand,Price,Rating")] Auto auto)
         {
             if (id != auto.Id)
             {

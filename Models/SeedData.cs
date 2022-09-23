@@ -27,7 +27,8 @@ namespace MvcAutod.Models
                         Model = "R8",
                         ReleaseDate = DateTime.Parse("1989-2-12"),
                         Brand = "Audi",
-                        Price = 7.99M
+                        Rating = 4,
+                        Price = 70000
                     },
 
                     new Auto
@@ -35,7 +36,8 @@ namespace MvcAutod.Models
                         Model = "Golf mk2 ",
                         ReleaseDate = DateTime.Parse("1984-3-13"),
                         Brand = "Volkswagen",
-                        Price = 8.99M
+                        Rating = 4,
+                        Price = 800
                     },
 
                     new Auto
@@ -43,7 +45,8 @@ namespace MvcAutod.Models
                         Model = "sf90",
                         ReleaseDate = DateTime.Parse("1986-2-23"),
                         Brand = "Ferrari",
-                        Price = 9.99M
+                        Rating = 4,
+                        Price = 120000
                     },
 
                     new Auto
@@ -51,7 +54,8 @@ namespace MvcAutod.Models
                         Model = "i10",
                         ReleaseDate = DateTime.Parse("1959-4-15"),
                         Brand = "Hyundai",
-                        Price = 3.99M
+                        Rating = 4,
+                        Price = 3000
                     }
                 );
                 context.SaveChanges();

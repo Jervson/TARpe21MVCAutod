@@ -18,6 +18,7 @@ namespace MVCAutod.Models
         public string Brand { get; set; }
 
         [Column(TypeName = "decimal(18, 2)")]
-        public decimal Price { get; set; }
+        public int Price { get; set; }
+        public decimal Rating { get; set; }
     }
 }
