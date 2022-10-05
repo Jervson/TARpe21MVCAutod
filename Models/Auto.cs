@@ -18,7 +18,7 @@ namespace MVCAutod.Models
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
 
-        [Range(1, 100000)]
+        [Range(1, 1000000)]
         [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }

@@ -20,11 +20,11 @@ namespace MVCAutod.Controllers
         }
 
         // GET: Autos
-        public async Task<IActionResult> Index(string autoMudel, string searchString)
+        public async Task<IActionResult> Index(string autoBrand, string searchString)
         {
             IQueryable<string> genreQuery = from m in _context.Auto
-                                            orderby m.Model
-                                            select m.Model;
+                                            orderby m.Brand
+                                            select m.Brand;
 
             var autos = from m in _context.Auto
                          select m;
@@ -34,14 +34,14 @@ namespace MVCAutod.Controllers
                 autos = autos.Where(s => s.Brand.Contains(searchString));
             }
             
-            if (!string.IsNullOrEmpty(autoMudel))
+            if (!string.IsNullOrEmpty(autoBrand))
             {
-                autos = autos.Where(x => x.Model == autoMudel);
+                autos = autos.Where(x => x.Brand == autoBrand);
             }
 
             var autoGenreVM = new AutoModelViewModel
             {
-                Models = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                Brand = new SelectList(await genreQuery.Distinct().ToListAsync()),
                 Autos = await autos.ToListAsync()
             };
 
