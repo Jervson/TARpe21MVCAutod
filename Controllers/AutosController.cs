@@ -31,12 +31,12 @@ namespace MVCAutod.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                autos = autos.Where(s => s.Brand.Contains(searchString));
+                autos = autos.Where(s => s.Model.Contains(searchString));
             }
             
             if (!string.IsNullOrEmpty(autoBrand))
             {
-                autos = autos.Where(x => x.Brand == autoBrand);
+                autos = autos.Where(x => x.Model == autoBrand);
             }
 
             var autoGenreVM = new AutoModelViewModel

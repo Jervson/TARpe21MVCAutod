@@ -12,10 +12,10 @@
 <form asp-controller="autos" asp-action="Index" method="get">
     <p>
         <select asp-for="AutoBrand" asp-items="Model.Brand">
-            <option value="">All</option>
+            <option value="">Brand</option>
         </select>
 
-        Brand: <input type="text" name="SearchString" />
+        Model: <input type="text" name="SearchString" />
         <input type="submit" value="Filter" />
     </p>
 </form>
