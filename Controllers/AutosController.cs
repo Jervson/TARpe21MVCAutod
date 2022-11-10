@@ -36,7 +36,7 @@ namespace MVCAutod.Controllers
             
             if (!string.IsNullOrEmpty(autoBrand))
             {
-                autos = autos.Where(x => x.Model == autoBrand);
+                autos = autos.Where(x => x.Brand == autoBrand);
             }
 
             var autoGenreVM = new AutoModelViewModel
