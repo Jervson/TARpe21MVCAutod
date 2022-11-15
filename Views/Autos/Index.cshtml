@@ -11,8 +11,8 @@
 </p>
 <form asp-controller="autos" asp-action="Index" method="get">
     <p>
-        <select asp-for="AutoBrand" asp-items="Model.Brand">
-            <option value="">Brand</option>
+        Brand: <select asp-for="AutoBrand" asp-items="Model.Brand">
+            <option value="">All</option>
         </select>
 
         Model: <input type="text" name="SearchString" />
